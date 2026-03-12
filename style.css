@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+#current-player {
+    font-size: 1.2em;
+    color: #555;
+    font-weight: bold;
+}
+
+#restart-btn {
+    padding: 10px 25px;
+    font-size: 1em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+#restart-btn:active {
+    transform: translateY(0);
+}
+
+#board {
+    border: 3px solid #8b4513;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #dcb35c;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.win-black {
+    color: #000;
+}
+
+.win-white {
+    color: #666;
+}
