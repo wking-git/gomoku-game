@@ -8,13 +8,76 @@
 </head>
 <body>
     <div class="container">
-        <h1>五子棋</h1>
-        <div class="game-info">
-            <span id="current-player">当前玩家：黑棋</span>
-            <button id="restart-btn">重新开始</button>
+        <h1 class="retro-title">五子棋</h1>
+
+        <!-- 游戏模式选择界面 -->
+        <div id="mode-select" class="mode-select">
+            <h2 class="pixel-text">选择游戏模式</h2>
+            <div class="mode-buttons">
+                <button id="pvp-btn" class="retro-btn">
+                    <span class="btn-text">双人对战</span>
+                    <span class="btn-sub">PVP</span>
+                </button>
+                <button id="pve-btn" class="retro-btn">
+                    <span class="btn-text">人机对战</span>
+                    <span class="btn-sub">PVE</span>
+                </button>
+            </div>
+            <!-- 难度选择（仅人机对战显示） -->
+            <div id="difficulty-select" class="difficulty-select" style="display: none;">
+                <h2 class="pixel-text">选择难度</h2>
+                <div class="difficulty-buttons">
+                    <button id="easy-btn" class="retro-btn diff-btn" data-level="easy">
+                        <span class="btn-text">简单</span>
+                        <span class="btn-sub">EASY</span>
+                    </button>
+                    <button id="medium-btn" class="retro-btn diff-btn" data-level="medium">
+                        <span class="btn-text">中等</span>
+                        <span class="btn-sub">MEDIUM</span>
+                    </button>
+                    <button id="hard-btn" class="retro-btn diff-btn" data-level="hard">
+                        <span class="btn-text">困难</span>
+                        <span class="btn-sub">HARD</span>
+                    </button>
+                </div>
+                <button id="back-mode-btn" class="retro-btn-small" style="margin-top: 20px;">返回上一级</button>
+            </div>
         </div>
-        <canvas id="board" width="600" height="600"></canvas>
+
+        <!-- 游戏界面 -->
+        <div id="game-ui" class="game-ui" style="display: none;">
+            <div class="game-info">
+                <div class="timer-box">
+                    <span class="timer-label">黑方</span>
+                    <span id="timer-black" class="timer">10:00</span>
+                </div>
+                <span id="current-player">当前：黑棋</span>
+                <div class="timer-box">
+                    <span class="timer-label">白方</span>
+                    <span id="timer-white" class="timer">10:00</span>
+                </div>
+            </div>
+            <canvas id="board" width="600" height="600"></canvas>
+            <div class="game-controls">
+                <button id="restart-btn" class="retro-btn-small">重新开始</button>
+                <button id="back-btn" class="retro-btn-small">返回主菜单</button>
+            </div>
+        </div>
+
         <div id="message"></div>
+
+        <!-- 游戏结束弹窗 -->
+        <div id="game-over-modal" class="modal">
+            <div class="modal-content">
+                <div id="result-icon" class="result-icon"></div>
+                <h2 id="result-title" class="pixel-text result-title"></h2>
+                <p id="result-message" class="result-message"></p>
+                <div class="modal-buttons">
+                    <button id="play-again-btn" class="retro-btn">再来一局</button>
+                    <button id="menu-btn" class="retro-btn">返回菜单</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="game.js"></script>
 </body>

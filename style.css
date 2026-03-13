@@ -6,25 +6,214 @@
 
 body {
     font-family: 'Microsoft YaHei', Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
-h1 {
-    color: #333;
+/* 复古标题 */
+.retro-title {
+    color: #f4d03f;
     margin-bottom: 20px;
-    font-size: 2.5em;
+    font-size: 3em;
+    text-shadow:
+        3px 3px 0 #c0392b,
+        -1px -1px 0 #e74c3c,
+        1px -1px 0 #e74c3c,
+        -1px 1px 0 #e74c3c,
+        0 0 20px rgba(244, 208, 63, 0.5);
+    letter-spacing: 10px;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow:
+            3px 3px 0 #c0392b,
+            -1px -1px 0 #e74c3c,
+            1px -1px 0 #e74c3c,
+            -1px 1px 0 #e74c3c,
+            0 0 20px rgba(244, 208, 63, 0.5);
+    }
+    to {
+        text-shadow:
+            3px 3px 0 #c0392b,
+            -1px -1px 0 #e74c3c,
+            1px -1px 0 #e74c3c,
+            -1px 1px 0 #e74c3c,
+            0 0 40px rgba(244, 208, 63, 0.8);
+    }
+}
+
+/* 像素字体效果 */
+.pixel-text {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* 模式选择界面 */
+.mode-select {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px 60px;
+    border-radius: 15px;
+    border: 4px solid #f4d03f;
+    box-shadow:
+        0 0 30px rgba(244, 208, 63, 0.3),
+        inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.mode-select h2 {
+    color: #f4d03f;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    text-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
+}
+
+.mode-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* 难度选择 */
+.difficulty-select {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px dashed rgba(244, 208, 63, 0.3);
+}
+
+.difficulty-select h2 {
+    color: #f4d03f;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.diff-btn {
+    padding: 15px 25px;
+}
+
+.diff-btn[data-level="easy"] {
+    background: linear-gradient(180deg, #27ae60 0%, #1e8449 100%);
+    box-shadow: 0 6px 0 #145a32, 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diff-btn[data-level="easy"]:hover {
+    background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.diff-btn[data-level="medium"] {
+    background: linear-gradient(180deg, #f39c12 0%, #d68910 100%);
+    box-shadow: 0 6px 0 #9a7d0a, 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diff-btn[data-level="medium"]:hover {
+    background: linear-gradient(180deg, #f5b041 0%, #f39c12 100%);
+}
+
+.diff-btn[data-level="hard"] {
+    background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 0 6px 0 #922b21, 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.diff-btn[data-level="hard"]:hover {
+    background: linear-gradient(180deg, #ec7063 0%, #e74c3c 100%);
+}
+
+/* 复古按钮 */
+.retro-btn {
+    position: relative;
+    padding: 20px 40px;
+    font-size: 1.2em;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    background: linear-gradient(180deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+    border: 4px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-transform: uppercase;
+    box-shadow:
+        0 6px 0 #1a5276,
+        0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.retro-btn:hover {
+    background: linear-gradient(180deg, #5dade2 0%, #3498db 100%);
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 0 #1a5276,
+        0 12px 15px rgba(0, 0, 0, 0.4);
+}
+
+.retro-btn:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 2px 0 #1a5276,
+        0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.retro-btn .btn-text {
+    display: block;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.retro-btn .btn-sub {
+    display: block;
+    font-size: 0.7em;
+    opacity: 0.8;
+}
+
+.retro-btn-small {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    background: linear-gradient(180deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-transform: uppercase;
+    box-shadow:
+        0 4px 0 #1a5276,
+        0 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+.retro-btn-small:hover {
+    background: linear-gradient(180deg, #5dade2 0%, #3498db 100%);
+    transform: translateY(-1px);
+}
+
+.retro-btn-small:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 2px 0 #1a5276,
+        0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 游戏界面 */
+.game-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .game-info {
@@ -33,39 +222,74 @@ h1 {
     align-items: center;
     gap: 20px;
     margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 2px solid #f4d03f;
 }
 
 #current-player {
-    font-size: 1.2em;
-    color: #555;
+    font-size: 1.3em;
+    color: #f4d03f;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 10px rgba(244, 208, 63, 0.5);
+}
+
+/* 计时器 */
+.timer-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #3498db;
+    min-width: 100px;
+}
+
+.timer-label {
+    display: block;
+    color: #3498db;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.timer {
+    display: block;
+    color: #fff;
+    font-size: 1.5em;
+    font-family: 'Courier New', monospace;
     font-weight: bold;
 }
 
-#restart-btn {
-    padding: 10px 25px;
-    font-size: 1em;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
+.timer.warning {
+    color: #f39c12;
+    animation: blink 0.5s infinite;
+}
+
+.timer.danger {
+    color: #e74c3c;
+    animation: blink 0.3s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* 棋盘 */
+#board {
+    border: 4px solid #8b4513;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-#restart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-}
-
-#restart-btn:active {
-    transform: translateY(0);
-}
-
-#board {
-    border: 3px solid #8b4513;
-    border-radius: 5px;
-    cursor: pointer;
     background: #dcb35c;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 游戏控制按钮 */
+.game-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
 }
 
 #message {
@@ -73,12 +297,134 @@ h1 {
     font-size: 1.3em;
     font-weight: bold;
     min-height: 30px;
+    color: #f4d03f;
+    font-family: 'Courier New', monospace;
 }
 
-.win-black {
-    color: #000;
+/* 弹窗背景 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.win-white {
-    color: #666;
+.modal.show {
+    display: flex;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 弹窗内容 */
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 50px 80px;
+    border-radius: 20px;
+    border: 5px solid #f4d03f;
+    box-shadow:
+        0 0 50px rgba(244, 208, 63, 0.4),
+        inset 0 0 100px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* 结果图标 */
+.result-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 结果标题 */
+.result-title {
+    font-size: 3em;
+    margin-bottom: 15px;
+    letter-spacing: 5px;
+}
+
+.result-title.win {
+    color: #f4d03f;
+    text-shadow:
+        0 0 20px rgba(244, 208, 63, 0.8),
+        3px 3px 0 #c0392b;
+    animation: pulse 0.5s infinite alternate;
+}
+
+.result-title.lose {
+    color: #e74c3c;
+    text-shadow:
+        0 0 20px rgba(231, 76, 60, 0.8),
+        3px 3px 0 #922b21;
+}
+
+.result-title.draw {
+    color: #3498db;
+    text-shadow:
+        0 0 20px rgba(52, 152, 219, 0.8),
+        3px 3px 0 #1a5276;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.result-message {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* 扫描线效果 */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+    );
 }
